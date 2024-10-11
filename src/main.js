@@ -1,8 +1,13 @@
-import { COMMANDS, ERRORS } from './consts.js';
-import { up } from './handlers/index.js';
+import { COLORS, COMMANDS, ERRORS } from './consts.js';
+import { up, cd } from './handlers/index.js';
 import { getCurrentDir } from './utils/index.js';
+import {
+  printGreenText,
+  printRedText,
+  printYellowText,
+} from './utils/colorText.js';
 
-const listener = (chunk) => {
+const listener = async (chunk) => {
   try {
     const [command, ...args] = chunk.toString().trim().split(' ');
 
@@ -11,16 +16,24 @@ const listener = (chunk) => {
         process.exit(0);
         break;
       case COMMANDS.UP:
-        up();
+        await up();
+        break;
+      case COMMANDS.CD:
+        const path = args.join(' ');
+        await cd(path);
         break;
       default:
         throw new Error(ERRORS.INPUT);
     }
-    console.log(getCurrentDir());
   } catch (error) {
-    console.log(error.message || ERRORS.OPERATION);
+    printRedText(error.message);
+  } finally {
+    printYellowText(getCurrentDir());
   }
 };
 
-console.log(getCurrentDir());
+printYellowText(getCurrentDir());
 process.stdin.on('data', listener);
+
+
+
