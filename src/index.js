@@ -5,6 +5,7 @@ import { dirname, join } from 'path';
 import { getCurrentDir, getUserName } from './utils/index.js';
 
 const userName = getUserName();
+const goodByeMessage = `Thank you for using File Manager, ${userName}, goodbye!`;
 process.chdir(homedir());
 console.log(`Welcome to the File Manager, ${userName}!`);
 console.log(getCurrentDir());
@@ -15,3 +16,9 @@ const child = spawn('node', [filePath]);
 
 process.stdin.pipe(child.stdin);
 child.stdout.pipe(process.stdout);
+
+process.on('SIGINT', () => {
+});
+child.on('close', (code) => {
+  console.log(goodByeMessage);
+});
