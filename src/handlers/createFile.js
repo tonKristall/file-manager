@@ -2,7 +2,7 @@ import { open } from 'fs/promises';
 import { ERRORS } from '../consts.js';
 import { getDirPath } from '../utils/index.js';
 
-export const add = async (path) => {
+export const createFile = async (path) => {
   if (!path) {
     throw new Error(ERRORS.INPUT);
   }

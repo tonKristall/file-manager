@@ -1,5 +1,13 @@
 import { COMMANDS, ERRORS } from './consts.js';
-import { up, cd, ls, cat, add, rn } from './handlers/index.js';
+import {
+  up,
+  changeDirectory,
+  filesList,
+  readFile,
+  createFile,
+  renameFile,
+  copyFile,
+} from './handlers/index.js';
 import { getCurrentDir } from './utils/index.js';
 import { printRedText, printYellowText } from './utils/colorText.js';
 
@@ -17,24 +25,28 @@ export const listener = async (chunk) => {
         await up();
         break;
       }
-      case COMMANDS.CD: {
-        await cd(path);
+      case COMMANDS.CHANGE_DIRECTORY: {
+        await changeDirectory(path);
         break;
       }
-      case COMMANDS.LS: {
-        await ls(path);
+      case COMMANDS.LIST: {
+        await filesList(path);
         break;
       }
-      case COMMANDS.CAT: {
-        await cat(path);
+      case COMMANDS.READ: {
+        await readFile(path);
         break;
       }
-      case COMMANDS.ADD: {
-        await add(path);
+      case COMMANDS.CREATE: {
+        await createFile(path);
         break;
       }
-      case COMMANDS.RN: {
-        await rn(path);
+      case COMMANDS.RENAME: {
+        await renameFile(path);
+        break;
+      }
+      case COMMANDS.COPY: {
+        await copyFile(path);
         break;
       }
       default: {

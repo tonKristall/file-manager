@@ -1,7 +1,7 @@
 import { ERRORS } from '../consts.js';
 import { getDirPath } from '../utils/index.js';
 
-export const cd = async (path) => {
+export const changeDirectory = async (path) => {
   try {
     const dirPath = getDirPath(path);
     process.chdir(dirPath);

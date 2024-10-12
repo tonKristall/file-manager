@@ -4,7 +4,7 @@ import { ERRORS } from '../consts.js';
 import { getDirPath } from '../utils/index.js';
 import { getConsoleWritable } from '../utils/getConsoleWritable.js';
 
-export const cat = async (path) => {
+export const readFile = async (path) => {
   if (!path) {
     throw new Error(ERRORS.INPUT);
   }

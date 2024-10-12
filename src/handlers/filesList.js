@@ -3,7 +3,7 @@ import { ERRORS } from '../consts.js';
 import { sortFiles } from '../utils/index.js';
 import { getDirPath } from '../utils/index.js';
 
-export const ls = async (path) => {
+export const filesList = async (path) => {
   try {
     const dirPath = getDirPath(path);
     const filesList = await readdir(dirPath, { withFileTypes: true });

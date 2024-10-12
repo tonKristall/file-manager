@@ -1,9 +1,9 @@
 import { rename } from 'fs/promises';
 import { ERRORS } from '../consts.js';
-import { getDirPath } from '../utils/index.js';
+import { getDirPath, splitPath } from '../utils/index.js';
 
-export const rn = async (path) => {
-  const files = path.match(/(.+\.\S+)\s(.+)/)?.slice(1);
+export const renameFile = async (path) => {
+  const files = splitPath(path);
   if (!files || !files[0] || !files[1]) {
     throw new Error(ERRORS.INPUT);
   }

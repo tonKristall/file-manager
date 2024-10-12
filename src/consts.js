@@ -9,11 +9,12 @@ export const ERRORS = {
 export const COMMANDS = {
   CLOSE: '.close',
   UP: 'up',
-  CD: 'cd',
-  LS: 'ls',
-  CAT: 'cat',
-  ADD: 'add',
-  RN: 'rn',
+  CHANGE_DIRECTORY: 'cd',
+  LIST: 'ls',
+  READ: 'cat',
+  CREATE: 'add',
+  RENAME: 'rn',
+  COPY: 'cp',
 };
 
 export const COLORS = {
