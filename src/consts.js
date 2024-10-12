@@ -10,6 +10,7 @@ export const COMMANDS = {
   CLOSE: '.close',
   UP: 'up',
   CD: 'cd',
+  LS: 'ls',
 };
 
 export const COLORS = {
