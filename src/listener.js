@@ -1,11 +1,12 @@
 import { COMMANDS, ERRORS } from './consts.js';
-import { up, cd, ls, cat, add } from './handlers/index.js';
+import { up, cd, ls, cat, add, rn } from './handlers/index.js';
 import { getCurrentDir } from './utils/index.js';
 import { printRedText, printYellowText } from './utils/colorText.js';
 
 export const listener = async (chunk) => {
   try {
     const [command, ...args] = chunk.toString().trim().split(' ');
+    const path = args.join(' ');
 
     switch (command) {
       case COMMANDS.CLOSE: {
@@ -17,23 +18,23 @@ export const listener = async (chunk) => {
         break;
       }
       case COMMANDS.CD: {
-        const path = args.join(' ');
         await cd(path);
         break;
       }
       case COMMANDS.LS: {
-        const path = args.join(' ');
         await ls(path);
         break;
       }
       case COMMANDS.CAT: {
-        const path = args.join(' ');
         await cat(path);
         break;
       }
       case COMMANDS.ADD: {
-        const path = args.join(' ');
         await add(path);
+        break;
+      }
+      case COMMANDS.RN: {
+        await rn(path);
         break;
       }
       default: {
