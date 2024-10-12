@@ -15,6 +15,8 @@ export const COMMANDS = {
   CREATE: 'add',
   RENAME: 'rn',
   COPY: 'cp',
+  MOVE: 'mv',
+  REMOVE: 'rm',
 };
 
 export const COLORS = {

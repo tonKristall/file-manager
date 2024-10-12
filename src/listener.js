@@ -7,8 +7,10 @@ import {
   createFile,
   renameFile,
   copyFile,
+  moveFile,
+  removeFile,
 } from './handlers/index.js';
-import { getCurrentDir } from './utils/index.js';
+import { getCurrentDir, splitPath } from './utils/index.js';
 import { printRedText, printYellowText } from './utils/colorText.js';
 
 export const listener = async (chunk) => {
@@ -46,7 +48,17 @@ export const listener = async (chunk) => {
         break;
       }
       case COMMANDS.COPY: {
-        await copyFile(path);
+        const files = splitPath(path);
+        await copyFile(files);
+        break;
+      }
+      case COMMANDS.MOVE: {
+        const files = splitPath(path);
+        await moveFile(files);
+        break;
+      }
+      case COMMANDS.REMOVE: {
+        await removeFile(path);
         break;
       }
       default: {
