@@ -13,11 +13,8 @@ export const ls = async (path) => {
         Type: file.isFile() ? 'file' : 'directory',
       }),
     );
-
     console.table(filesDetails);
-  } catch (err) {
-    console.log(err);
-
+  } catch {
     throw new Error(ERRORS.OPERATION);
   }
 };
