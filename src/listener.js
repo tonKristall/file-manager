@@ -1,5 +1,5 @@
 import { COMMANDS, ERRORS } from './consts.js';
-import { up, cd, ls, cat } from './handlers/index.js';
+import { up, cd, ls, cat, add } from './handlers/index.js';
 import { getCurrentDir } from './utils/index.js';
 import { printRedText, printYellowText } from './utils/colorText.js';
 
@@ -29,6 +29,11 @@ export const listener = async (chunk) => {
       case COMMANDS.CAT: {
         const path = args.join(' ');
         await cat(path);
+        break;
+      }
+      case COMMANDS.ADD: {
+        const path = args.join(' ');
+        await add(path);
         break;
       }
       default: {

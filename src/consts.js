@@ -12,6 +12,7 @@ export const COMMANDS = {
   CD: 'cd',
   LS: 'ls',
   CAT: 'cat',
+  ADD: 'add',
 };
 
 export const COLORS = {
