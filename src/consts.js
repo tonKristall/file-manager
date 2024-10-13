@@ -17,6 +17,15 @@ export const COMMANDS = {
   COPY: 'cp',
   MOVE: 'mv',
   REMOVE: 'rm',
+  OPERATION_SYSTEM: 'os',
+};
+
+export const OPERATIONS = {
+  EOL: '--EOL',
+  CPUS: '--cpus',
+  HOME_DIR: '--homedir',
+  USER_NAME: '--username',
+  ARCHITECTURE: '--architecture',
 };
 
 export const COLORS = {

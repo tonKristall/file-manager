@@ -9,6 +9,7 @@ import {
   copyFile,
   moveFile,
   removeFile,
+  operatingSystem,
 } from './handlers/index.js';
 import { getCurrentDir, splitPath } from './utils/index.js';
 import { printRedText, printYellowText } from './utils/colorText.js';
@@ -59,6 +60,10 @@ export const listener = async (chunk) => {
       }
       case COMMANDS.REMOVE: {
         await removeFile(path);
+        break;
+      }
+      case COMMANDS.OPERATION_SYSTEM: {
+        await operatingSystem(path);
         break;
       }
       default: {
