@@ -9,7 +9,7 @@ import {
   copyFile,
   moveFile,
   removeFile,
-  operatingSystem,
+  operatingSystem, hashCalculation,
 } from './handlers/index.js';
 import { getCurrentDir, splitPath } from './utils/index.js';
 import { printRedText, printYellowText } from './utils/colorText.js';
@@ -64,6 +64,10 @@ export const listener = async (chunk) => {
       }
       case COMMANDS.OPERATION_SYSTEM: {
         await operatingSystem(path);
+        break;
+      }
+      case COMMANDS.HASH_CALCULATION: {
+        await hashCalculation(path);
         break;
       }
       default: {

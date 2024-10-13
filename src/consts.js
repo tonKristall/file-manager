@@ -18,6 +18,7 @@ export const COMMANDS = {
   MOVE: 'mv',
   REMOVE: 'rm',
   OPERATION_SYSTEM: 'os',
+  HASH_CALCULATION: 'hash',
 };
 
 export const OPERATIONS = {
