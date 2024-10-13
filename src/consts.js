@@ -19,6 +19,8 @@ export const COMMANDS = {
   REMOVE: 'rm',
   OPERATION_SYSTEM: 'os',
   HASH_CALCULATION: 'hash',
+  COMPRESS: 'compress',
+  DECOMPRESS: 'decompress',
 };
 
 export const OPERATIONS = {

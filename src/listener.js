@@ -9,7 +9,10 @@ import {
   copyFile,
   moveFile,
   removeFile,
-  operatingSystem, hashCalculation,
+  operatingSystem,
+  hashCalculation,
+  compress,
+  decompress,
 } from './handlers/index.js';
 import { getCurrentDir, splitPath } from './utils/index.js';
 import { printRedText, printYellowText } from './utils/colorText.js';
@@ -68,6 +71,16 @@ export const listener = async (chunk) => {
       }
       case COMMANDS.HASH_CALCULATION: {
         await hashCalculation(path);
+        break;
+      }
+      case COMMANDS.COMPRESS: {
+        const files = splitPath(path);
+        await compress(files);
+        break;
+      }
+      case COMMANDS.DECOMPRESS: {
+        const files = splitPath(path);
+        await decompress(files);
         break;
       }
       default: {
